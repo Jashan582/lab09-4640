@@ -1,5 +1,8 @@
 packer {
   required_plugins {
+    # COMPLETE ME
+    # add necessary plugins for ansible and aws
+
     amazon = {
       version = "1.3.0"
       source  = "github.com/hashicorp/amazon"
@@ -12,6 +15,9 @@ packer {
 }
 
 source "amazon-ebs" "ubuntu" {
+  # COMPLETE ME
+  # add configuration to use Ubuntu 24.04 image as source image
+
   ami_name      = "packer-ansible-nginx"
   instance_type = "t2.micro"
   region        = "us-west-2"
@@ -30,6 +36,12 @@ source "amazon-ebs" "ubuntu" {
 }
 
 build {
+# COMPLETE ME
+  # add configuration to: 
+  # - use the source image specified above
+  # - use the "ansible" provisioner to run the playbook in the ansible directory
+  # - use the ssh user-name specified in the "variables.pkr.hcl" file
+
   name = "packer-ansible-nginx"
   sources = ["source.amazon-ebs.ubuntu"]
 

@@ -32,6 +32,6 @@ us-west-2: ami-0e549e5431d9ea42f
 
 Terraform init
 
-and Terrafrom appy 
+and Terrafrom apply 
 
 # This should not bring  up our ec2 instance from the ami image

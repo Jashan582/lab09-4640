@@ -30,7 +30,7 @@ source "amazon-ebs" "ubuntu" {
 }
 
 build {
-  name = "web-nginx"
+  name = "packer-ansible-nginx"
   sources = ["source.amazon-ebs.ubuntu"]
 
   provisioner "shell" {
@@ -44,19 +44,9 @@ build {
 
  
   provisioner "ansible-local" {
-    playbook_file   = "/mnt/c/Users/dosan/4640-w9-lab-start-w25//ansible/playbook.yml"
-    playbook_dir    = "/mnt/c/Users/dosan/4640-w9-lab-start-w25/ansible"
-    ansible_env_vars = ["ANSIBLE_HOST_KEY_CHECKING=False"]
-    extra_arguments = ["-vvv"]
+    playbook_file   = ".../ansible/playbook.yml"
+    extra_arguments = ["-vvv","ANSIBLE_HOST_KEY_CHECKING=False" ]
+    user = var.ssh_username
   }
 
-
-  provisioner "shell" {
-    inline = [
-      "sudo rm -rf /tmp/web",
-      "sudo systemctl reload nginx",
-      "echo 'Build completed successfully'"
-    ]
-  }
-}
 

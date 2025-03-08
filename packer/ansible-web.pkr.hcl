@@ -48,5 +48,6 @@ build {
     extra_arguments = ["-vvv","ANSIBLE_HOST_KEY_CHECKING=False" ]
     user = var.ssh_username
   }
+}
 
 

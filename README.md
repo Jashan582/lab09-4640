@@ -1,6 +1,5 @@
 # 4640-w9-lab-start-w25
 
-# 4640-w9-lab-start-w25
 
 # The first thing we need to do is import our ssh key into aws
 # We can do this using the following command 
